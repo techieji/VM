@@ -46,7 +46,13 @@ class Machine:
 
 def execute(ins: str):
     m = Machine()
-    m.execute(ins.split('\n'))
+    ins = ins.split('\n')
+    ins = list(filter(bool, ins))
+    instructions = []
+    for x in ins:
+        if x[0] != ';':
+            instructions.append(x)
+    m.execute(instructions)
 
 with open("file.vm") as f:
     execute(f.read())
