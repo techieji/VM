@@ -6,6 +6,12 @@ variables = {}
 def setvar(varname, value): # I have to do this because of Python's stupid lambda expressions
     variables[varname] = value
 
+class Termination(Exception):
+    pass
+
+def terminate():
+    raise Termination("Program terminated")
+
 instructionset = {                                 # everything has to be in reverse order because the vm is stack-based
         "int": (1, lambda x: int(x)),
         "str": (1, lambda x: str(x)),
@@ -23,7 +29,8 @@ instructionset = {                                 # everything has to be in rev
         "gt": (2, lambda x, y: y > x),
         "if": (3, lambda x, y, z: y if z else x),
         "set": (2, lambda x, y: setvar(x, y)),
-        "get": (1, lambda x: variables[x])
+        "get": (1, lambda x: variables[x]),
+        "terminate": (0, terminate)
 }
 
 class Machine:

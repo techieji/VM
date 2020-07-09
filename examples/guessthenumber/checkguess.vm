@@ -1,9 +1,28 @@
--function(checkguess)
-; this function assumes that the guess is pushed onto the stack and the actual number is stored in val
+--function(checkguess)
+; this function assumes that the guess is called guess and the actual number is stored in val
 
+guess
+get
+val
+get
+eq
+You won!
+
+; Nested if clauses!
+guess
+get
+val
+get
+gt
+Too High!
+Too Low
+if
+
+if
+out
+
+guess
+get
 val
 get
 cmp
-x
-set
-; z is the result of the comparison

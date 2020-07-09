@@ -1,1 +1,28 @@
--include(checkguess.vm)
+--include(examples/guessthenumber/checkguess.vm)
+
+You have three guesses to guess the number. Only your final guess will count. Try to win!
+out
+
+4
+int
+val
+set
+
+; there are no loops?!?!?!
+inp
+int
+guess
+set
+checkguess
+
+inp
+int
+guess
+set
+checkguess
+
+inp
+int
+guess
+set
+checkguess

@@ -1,0 +1,12 @@
+--function(startguesser)
+--include(examples/guessthenumbers/checkguess.vm)
+
+; Assumes the actual number is stored in val
+
+inp
+int
+guess
+set
+
+checkguess
+out
