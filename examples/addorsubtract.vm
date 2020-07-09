@@ -1,22 +1,14 @@
-; comments are started by a semicolon on a newline
-; first, add an int
 inp
 int
 inp
-; this part takes a string from the input
 +
 eq
 1
 -1
 if
-; the if statement states that if the input equals the string '+', the value of 
-; the if statement is 1; otherwise, its value is -1
 int
 inp
-; get another int
 int
 mul
-; multiply it by the  result from the if, leading to either `b` or `-b`
 add
 out
-; add the output and print it

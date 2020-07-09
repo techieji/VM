@@ -1,0 +1,9 @@
+-function(checkguess)
+; this function assumes that the guess is pushed onto the stack and the actual number is stored in val
+
+val
+get
+cmp
+x
+set
+; z is the result of the comparison

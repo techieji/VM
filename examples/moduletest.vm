@@ -1,4 +1,4 @@
--include(examples/readint.vm)
+--include(examples/readint.vm)
 readint
 readint
 add
