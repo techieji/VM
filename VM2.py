@@ -1,4 +1,5 @@
 import operator
+import sys
 
 instructionset = {                                 # everything has to be in reverse order because the vm is stack-based
         "int": (1, lambda x: int(x)),
@@ -44,15 +45,34 @@ class Machine:
         for x in ins:
             self.doins(x)
 
-def execute(ins: str):
+def formattext(text: str):
+    ins = text.split('\n')
+    ins = filter(bool, ins)
+    ins = [x for x in ins if x[0] != ';']
+    return ins
+
+def execute(text: str):
     m = Machine()
-    ins = ins.split('\n')
+    ins = text.split('\n')
     ins = list(filter(bool, ins))
     instructions = []
+    macros = {}
     for x in ins:
-        if x[0] != ';':
-            instructions.append(x)
+        if x[0] == '-':
+            if x[0:9] == '-include(':
+                filename = x[9:-1]
+                with open(filename) as f:
+                    filetext = formattext(f.read())
+                    modulename = filetext[0][8:-1]
+                    macros[modulename] = filetext[1:]
+        elif x[0] != ';':
+            if x in macros.keys():
+                macrovalue = macros[x]
+                for i in macrovalue:
+                    instructions.append(i)
+            else:
+                instructions.append(x)
     m.execute(instructions)
 
-with open("file.vm") as f:
+with open(sys.argv[1]) as f:
     execute(f.read())

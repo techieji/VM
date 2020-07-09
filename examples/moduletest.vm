@@ -1,0 +1,5 @@
+-include(examples/readint.vm)
+readint
+readint
+add
+out

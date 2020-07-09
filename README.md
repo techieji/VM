@@ -4,7 +4,7 @@ Hello! This VM is meant for my personal uses, but it certainly can be used by ot
 
 ## Features
 ### Stack-based
-Every function follows the same blueprint. The function pops its inputs from the stack and then pushs the inputs back onto the stack.
+Every function follows the same blueprint. The function pops its inputs from the stack and then pushs its outputs back onto the stack.
 
 ### Arithmetic
 This VM has many different arithmetic operations, with more to come. It currently supports addition, subtraction, multiplication, true division, and floor division. It also supports a comparison operator, `cmp` which returns 0 if the inputs are equal, 1 if the first input is greater than the second, and -1 if the first input is less than the second.
@@ -20,6 +20,9 @@ Coming soon!
 
 ### IO
 Currently, there are two operations for IO: `inp`, which takes input and pushes it to the stack, and `out` which pops from the stack and prints it. `inp` returns a string, so if you need a number, you need to cast it with the `int` function.
+
+### Macros
+With macros, you can define functions and import functions in different files. The first two macros I'll be implementing are `-include` and `-function`, which allow you to import and define function, respectively. Each file can only contain one function (sorry!) but I'll do my best to make it easier to use just one file.
 
 ## Examples
 If you want to see some examples, here you go! This example adds two numbers given from the input:
@@ -37,4 +40,13 @@ out
 ```
 
 ## Use
-Command line arguments coming soon!
+You can use run a `.vm` file like this:
+```
+$ python3 VM2.py examples/test.vm
+5
++
+6
+11
+$
+```
+In order to run multiple files, you do not give multiple arguments to the VM. All you have to do is include them from an arbitrary `main.vm` file, which will then import all the files and run them when necessary.
