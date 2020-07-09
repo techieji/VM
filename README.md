@@ -4,7 +4,7 @@ Hello! This VM is meant for my personal uses, but it certainly can be used by ot
 
 ## Features
 ### Stack-based
-Every function follows the same blueprint. The function pops its inputs from the stack and then pushs the inputs back onto the stack.
+Every function follows the same blueprint. The function pops its inputs from the stack and then pushs its outputs back onto the stack.
 
 ### Arithmetic
 This VM has many different arithmetic operations, with more to come. It currently supports addition, subtraction, multiplication, true division, and floor division. It also supports a comparison operator, `cmp` which returns 0 if the inputs are equal, 1 if the first input is greater than the second, and -1 if the first input is less than the second.
