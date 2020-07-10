@@ -53,3 +53,11 @@ $ python3 VM2.py examples/addorsubtract.vm
 $
 ```
 In order to run multiple files, you do not give multiple arguments to the VM. All you have to do is include them from an arbitrary `main.vm` file, which will then import all the files and run them when necessary.
+
+There is also a repl for this VM. You can run it like this:
+```
+$ python3 VM2.py
+Entering REPL...
+>
+```
+You can normally execute instruction in it. There is no way to restart the repl except by pressing Ctrl-D and running the repl again. 
