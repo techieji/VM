@@ -36,6 +36,7 @@ instructionset = {                                 # everything has to be in rev
 class Machine:
     def __init__(self):
         self.stack = []
+        self.pointer = 0
 
     def pop(self):
         return self.stack.pop()
@@ -44,9 +45,9 @@ class Machine:
         self.stack.append(x)
 
     def doins(self, ins):
-        try:
+        if ins in instructionset.keys():
             instruction = instructionset[ins]
-        except KeyError:
+        else:
             self.push(ins)
             return
         i = instruction[0]
@@ -56,6 +57,16 @@ class Machine:
         self.push(instruction[1](*args))
 
     def execute(self, ins):
+        x = ins[self.pointer]
+        while self.pointer != len(ins):
+            x = ins[self.pointer]
+            if x == "jmp":
+                self.pointer = self.stack.pop()
+            else:
+                self.doins(x)
+                self.pointer += 1
+
+    def oldexecute(self, ins):
         for x in ins:
             self.doins(x)
 
