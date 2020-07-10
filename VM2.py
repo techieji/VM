@@ -15,6 +15,7 @@ def terminate():
 instructionset = {                                 # everything has to be in reverse order because the vm is stack-based
         "int": (1, lambda x: int(x)),
         "str": (1, lambda x: str(x)),
+        "float": (1, lambda x: float(x)),
         "bool": (1, lambda x: bool(x)),
         "inp": (0, lambda: input()),
         "out": (1, lambda x: print(x)),
