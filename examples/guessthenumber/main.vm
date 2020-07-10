@@ -8,21 +8,27 @@ int
 val
 set
 
-; there are no loops?!?!?!
-inp
-int
-guess
-set
-checkguess
+; You can use the `jmp` instruction to create loops
+
+Enter a guess
+out
 
 inp
 int
 guess
 set
-checkguess
 
-inp
-int
-guess
-set
 checkguess
+0
+eq
+44
+7
+if
+int
+jmp
+
+; IMPORTANT NOTE: procedures are implemented as macros, so the line numbers will differ. You MUST take this into account, or else you could end up in an infinite loop.
+; The above part jump to line 26 if the guess is correct and to 13 otherwise, implementing a while loop
+
+Thank you for playing this short game!
+out
