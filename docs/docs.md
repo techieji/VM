@@ -46,5 +46,13 @@ Take a guess. If you didn't know, it's greater than.
 Okay, you're smart enough to know this one.
 
 #### If
-I'll get to this later.
-
+Sucks a boolean and two values from the stack and returns one of the two values, depending on the boolean. Here's an example:
+```
+inp
++
+eq
+1
+-1
+if
+```
+This code returns 1 if the input is a `+`, otherwise, it returns -1. This is actually how `examples/addorsubtract.vm` is implemented. If you think that this definition is quite useless, you are quite wrong. You can conditionally execute code with the `jmp` instruction. I'll add an example later.
