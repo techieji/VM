@@ -1,5 +1,6 @@
 import operator
 import sys
+import random
 
 variables = {}
 
@@ -31,7 +32,8 @@ instructionset = {                                 # everything has to be in rev
         "if": (3, lambda x, y, z: y if z else x),
         "set": (2, lambda x, y: setvar(x, y)),
         "get": (1, lambda x: variables[x]),
-        "terminate": (0, terminate)
+        "terminate": (0, terminate),
+        "rand": (2, lambda x, y: random.randint(y, x))
 }
 
 class Machine:

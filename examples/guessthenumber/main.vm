@@ -1,6 +1,6 @@
 --include(examples/guessthenumber/checkguess.vm)
 
-You have three guesses to guess the number. Only your final guess will count. Try to win!
+Try to guess the number!
 out
 
 4

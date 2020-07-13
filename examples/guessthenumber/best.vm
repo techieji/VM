@@ -1,0 +1,33 @@
+Guess the Number! The goal is pretty obvious.
+out
+inp
+int
+4
+int
+cmp
+comparison
+set
+comparison
+get
+0
+int
+eq
+31
+19
+if
+int
+jmp
+comparison
+get
+1
+int
+eq
+Too high!
+Too low!
+if
+out
+2
+int
+jmp
+You won!
+out
