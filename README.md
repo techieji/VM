@@ -1,6 +1,6 @@
 # VM
 
-Hello! This VM is meant for my personal uses, but it certainly can be used by other people. It is meant to be easy to understand and easy to create. One of my future goals is to make it fast, but to get there, I first have to make it competent. Here are the features which this VM currently has:
+Hello! This VM is meant for my personal uses, but it certainly can be used by other people. It is meant to be easy to understand and easy to create. One of my future goals is to make it fast, but to get there, I first have to make it competent. Please note that development on this VM will be stagnant until I find reason to add another operation. Here are the features which this VM currently has:
 
 ## Features
 ### Stack-based
@@ -25,7 +25,7 @@ Currently, there are two operations for IO: `inp`, which takes input and pushes 
 With macros, you can define functions and import functions in different files. The first two macros I'll be implementing are `--include` and `--function`, which allow you to import and define function, respectively. Each file can only contain one function (sorry!) but I'll do my best to make it easier to use just one file. Although these macros can help understandabilty in some cases, when used in conjunction with the `jmp` function, it can bring out some unintuitive behavior.
 
 ### Jump Instruction
-The jump instruction, `jmp`, allows you to jump to a specific line number. Note that macros are expanded before execution, so make sure you take that into account. The guess the number game, located at `examples/guessthenumber`, gives an example of the unintuitive behavior that using macros with the jump instruction does.
+The jump instruction, `jmp`, allows you to jump to a specific line number. Note that macros are expanded before execution and comments are removed, so make sure you take that into account. The guess the number game, located at `examples/guessthenumber`, gives an example of the unintuitive behavior that using macros with the jump instruction does. `examples/guessthenumber/best.vm` gives an example of proper code. Its only downside is that the lack of comments make it hard to understand.
 
 ## Examples
 If you want to see some examples, here you go! This example adds two numbers given from the input:
@@ -42,6 +42,8 @@ out
 ; This prints the value of the addition
 ```
 
+The `examples` folder also contains many examples. You can run them as stated in the section below.
+
 ## Use
 You can use run a `.vm` file like this:
 ```
@@ -54,10 +56,20 @@ $
 ```
 In order to run multiple files, you do not give multiple arguments to the VM. All you have to do is include them from an arbitrary `main.vm` file, which will then import all the files and run them when necessary.
 
+You can also run using the executable, located in `bin`:
+```
+$ ./VM2 examples/addorsubtract.vm
+5
++
+6
+11
+$
+```
+
 There is also a repl for this VM. You can run it like this:
 ```
 $ python3 VM2.py
 Entering REPL...
 >
 ```
-You can normally execute instruction in it. There is no way to restart the repl except by pressing Ctrl-D and running the repl again. 
+You can execute instructions in it. There is no way to restart the repl except by pressing Ctrl-D and running the repl again. 
